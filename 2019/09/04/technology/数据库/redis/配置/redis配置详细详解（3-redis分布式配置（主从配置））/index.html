@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>redis配置详细详解（3.redis分布式配置（主从配置）） | beyondWei-bolg</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="今日份博客">
+<meta name="keywords" content="技术,后端,redis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="redis配置详细详解（3.redis分布式配置（主从配置））">
+<meta property="og:url" content="http://yoursite.com/2019/09/04/technology/数据库/redis/配置/redis配置详细详解（3-redis分布式配置（主从配置））/index.html">
+<meta property="og:site_name" content="beyondWei-bolg">
+<meta property="og:description" content="今日份博客">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-09-19T01:35:29.050Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="redis配置详细详解（3.redis分布式配置（主从配置））">
+<meta name="twitter:description" content="今日份博客">
+  
+    <link rel="alternate" href="/atom.xml" title="beyondWei-bolg" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">beyondWei-bolg</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-technology/数据库/redis/配置/redis配置详细详解（3-redis分布式配置（主从配置））" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/09/04/technology/数据库/redis/配置/redis配置详细详解（3-redis分布式配置（主从配置））/" class="article-date">
+  <time datetime="2019-09-04T13:54:07.000Z" itemprop="datePublished">2019-09-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      redis配置详细详解（3.redis分布式配置（主从配置））
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="今日份博客"><a href="#今日份博客" class="headerlink" title="今日份博客"></a>今日份博客</h4><a id="more"></a>
+
+<h4 id="slaveof"><a href="#slaveof" class="headerlink" title="slaveof"></a>slaveof</h4><ul>
+<li>模板：slaveof <masterip> <masterport></masterport></masterip></li>
+<li>作用：指定改redis成为某一个redis的从服务器，会定时从主服务器复制值。如果<code>SLAVEOF NO ONE</code>将会删除主从关系，但是不会删除从原来主服务器复制过来的数据</li>
+<li>默认未开启</li>
+</ul>
+<h4 id="masterauth"><a href="#masterauth" class="headerlink" title="masterauth"></a>masterauth</h4><ul>
+<li>模板：masterauth <master-password></master-password></li>
+<li>作用：配置主从服务器的时候如果主服务器有密码则需要填写</li>
+<li>默认未开启</li>
+</ul>
+<h4 id="slave-serve-stale-data"><a href="#slave-serve-stale-data" class="headerlink" title="slave-serve-stale-data"></a>slave-serve-stale-data</h4><ul>
+<li>模板：slave-serve-stale-data yes</li>
+<li>yes：作用：当从服务器还在复制主服务器的数据时，访问从服务器也是允许的，但是数据可能是过期或者的，如果数据不存在将会返回空;</li>
+<li>no：作用：获取数据时会报’SYNC with master in progress’的异常</li>
+</ul>
+<h4 id="slave-read-only"><a href="#slave-read-only" class="headerlink" title="slave-read-only"></a>slave-read-only</h4><ul>
+<li>模板：slave-read-only yes</li>
+<li>作用：redis2.6以后的版本默认从服务器都是只读的</li>
+</ul>
+<h4 id="repl-diskless-sync"><a href="#repl-diskless-sync" class="headerlink" title="repl-diskless-sync"></a>repl-diskless-sync</h4><ul>
+<li>模板：repl-diskless-sync no</li>
+<li>作用：主从复制有两种模式。第一种是通过磁盘的方式，生成rdb以后将日报道同步到从服务器。第二种是通过socket的方式传输，在慢速磁盘和大带宽的情况下，socket的方式更优。</li>
+<li>repl-diskless-sync yes - 开启无磁盘复制</li>
+</ul>
+<h4 id="repl-diskless-sync-delay"><a href="#repl-diskless-sync-delay" class="headerlink" title="repl-diskless-sync-delay"></a>repl-diskless-sync-delay</h4><ul>
+<li>模板：repl-diskless-sync-delay 5</li>
+<li>作用：一旦开始socket的传输方式，主服务器将不会给新来的从服务器传输。所以在开始传输前设置传输等待时间（单位/秒）</li>
+</ul>
+<h4 id="repl-ping-slave-period"><a href="#repl-ping-slave-period" class="headerlink" title="repl-ping-slave-period"></a>repl-ping-slave-period</h4><ul>
+<li>模板：repl-ping-slave-period 10</li>
+<li>作用：从服务器定时发送ping到主服务器</li>
+</ul>
+<h4 id="repl-timeout"><a href="#repl-timeout" class="headerlink" title="repl-timeout"></a>repl-timeout</h4><ul>
+<li>模板：repl-timeout 60</li>
+<li>作用：设置主从超时时间</li>
+<li>超时定义 1、在从服务器的角度，同步过程中批量I/O传输超过指定时间  2、从服务器ping主服务器指定时间没有通  3、主服务器给从服务器ack信息指定时间没有通</li>
+</ul>
+<h4 id="repl-disable-tcp-nodelay"><a href="#repl-disable-tcp-nodelay" class="headerlink" title="repl-disable-tcp-nodelay"></a>repl-disable-tcp-nodelay</h4><ul>
+<li>模板：repl-disable-tcp-nodelay no</li>
+<li>作用：在同步之后是否禁用TCP_NODELAY。no将会减少延迟，更多的宽带会用于复制；yes延迟将会加大，减少对宽带的占用，最大不会超过40毫秒，</li>
+</ul>
+<h4 id="repl-backlog-size"><a href="#repl-backlog-size" class="headerlink" title="repl-backlog-size"></a>repl-backlog-size</h4><ul>
+<li>模板：repl-backlog-size 1mb</li>
+<li>默认未开启</li>
+<li>作用：在复制过成中从服务器断开连接，主服务器会将复制的内容存入缓存区，当从服务器重新连接上来以后，不需要全部同步，只需要同步缓存的部分。所以将缓存的数据设置的越大，从服务器可以失联的时间越长</li>
+</ul>
+<h4 id="repl-backlog-ttl"><a href="#repl-backlog-ttl" class="headerlink" title="repl-backlog-ttl"></a>repl-backlog-ttl</h4><ul>
+<li>模板：repl-backlog-ttl 3600</li>
+<li>默认未开启</li>
+<li>作用：设置缓存区有效时间</li>
+</ul>
+<h4 id="slave-priority"><a href="#slave-priority" class="headerlink" title="slave-priority"></a>slave-priority</h4><ul>
+<li>模板：slave-priority 100</li>
+<li>作用：当主redis挂掉以后哨兵会选出优先级最低的从服务器来做主服务器，例如：10,20,30 就会选优先级为10的</li>
+</ul>
+<h4 id="min-slaves-to-write-min-slaves-max-lag"><a href="#min-slaves-to-write-min-slaves-max-lag" class="headerlink" title="min-slaves-to-write min-slaves-max-lag"></a>min-slaves-to-write min-slaves-max-lag</h4><ul>
+<li>模板：min-slaves-to-write 3 ；min-slaves-max-lag 10</li>
+<li>默认未开启</li>
+<li>作用：当从服务器存活数量小于3或者滞后时间小于10 主服务将不接受写操作。如果有一个值设为0就禁用该功能</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/09/04/technology/数据库/redis/配置/redis配置详细详解（3-redis分布式配置（主从配置））/" data-id="ck0q0dg0s000imguxl4cad0or" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/">redis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术/">技术</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/09/05/technology/数据库/redis/配置/redis配置详细详解（4-redis安全配置）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          redis配置详细详解（4.redis安全配置）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/09/03/technology/数据库/redis/配置/redis配置详细详解（2-数据持久化（快照）配置）/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">redis配置详细详解（2.数据持久化（快照）配置）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/后端/">后端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础/">基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术/">技术</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日常/">日常</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/redis/" style="font-size: 15px;">redis</a> <a href="/tags/后端/" style="font-size: 20px;">后端</a> <a href="/tags/基础/" style="font-size: 10px;">基础</a> <a href="/tags/技术/" style="font-size: 17.5px;">技术</a> <a href="/tags/日常/" style="font-size: 12.5px;">日常</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/09/16/technology/java/集合/集合/">java集合</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/15/technology/java/锁/锁的种类和概念/">锁的种类和概念</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/10/technology/数据库/redis/应用场景/redis应用场景（1-分布式锁）/">redis应用场景（1.分布式锁）</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/09/technology/数据库/redis/配置/redis配置详细详解（9-高级配置）/">redis配置详细详解（9.高级配置）</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/08/technology/数据库/redis/配置/redis配置详细详解（8-缓慢请求、通知相关配置）/">redis配置详细详解（8.缓慢请求、通知相关配置）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 beyond_wei<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

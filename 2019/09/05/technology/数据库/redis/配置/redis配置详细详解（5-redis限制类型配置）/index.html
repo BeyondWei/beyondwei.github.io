@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>redis配置详细详解（5.redis限制类型配置） | beyondWei-bolg</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="maxclients 模板：maxclients 10000 默认不开启 作用：限制同时连接redis的用户数量  maxmemory 模板：maxmemory  作用：设置redis内存大小  maxmemory-policy 模板：maxmemory-policy noeviction  作用：当redis内存满了以后对redis数据的删除的策略  参数    参数 说明    volati">
+<meta name="keywords" content="技术,后端,redis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="redis配置详细详解（5.redis限制类型配置）">
+<meta property="og:url" content="http://yoursite.com/2019/09/05/technology/数据库/redis/配置/redis配置详细详解（5-redis限制类型配置）/index.html">
+<meta property="og:site_name" content="beyondWei-bolg">
+<meta property="og:description" content="maxclients 模板：maxclients 10000 默认不开启 作用：限制同时连接redis的用户数量  maxmemory 模板：maxmemory  作用：设置redis内存大小  maxmemory-policy 模板：maxmemory-policy noeviction  作用：当redis内存满了以后对redis数据的删除的策略  参数    参数 说明    volati">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-09-19T01:35:28.780Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="redis配置详细详解（5.redis限制类型配置）">
+<meta name="twitter:description" content="maxclients 模板：maxclients 10000 默认不开启 作用：限制同时连接redis的用户数量  maxmemory 模板：maxmemory  作用：设置redis内存大小  maxmemory-policy 模板：maxmemory-policy noeviction  作用：当redis内存满了以后对redis数据的删除的策略  参数    参数 说明    volati">
+  
+    <link rel="alternate" href="/atom.xml" title="beyondWei-bolg" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">beyondWei-bolg</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-technology/数据库/redis/配置/redis配置详细详解（5-redis限制类型配置）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/09/05/technology/数据库/redis/配置/redis配置详细详解（5-redis限制类型配置）/" class="article-date">
+  <time datetime="2019-09-05T12:33:11.000Z" itemprop="datePublished">2019-09-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      redis配置详细详解（5.redis限制类型配置）
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
+<h4 id="maxclients"><a href="#maxclients" class="headerlink" title="maxclients"></a>maxclients</h4><ul>
+<li>模板：maxclients 10000</li>
+<li>默认不开启</li>
+<li>作用：限制同时连接redis的用户数量</li>
+</ul>
+<h4 id="maxmemory"><a href="#maxmemory" class="headerlink" title="maxmemory"></a>maxmemory</h4><ul>
+<li>模板：maxmemory <bytes></bytes></li>
+<li>作用：设置redis内存大小</li>
+</ul>
+<h4 id="maxmemory-policy"><a href="#maxmemory-policy" class="headerlink" title="maxmemory-policy"></a>maxmemory-policy</h4><ul>
+<li><p>模板：maxmemory-policy noeviction</p>
+</li>
+<li><p>作用：当redis内存满了以后对redis数据的删除的策略</p>
+</li>
+<li><p><strong>参数</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">volatile-lru</td>
+<td>在设置了过期时间的键空间中，优先移除最近未使用的key</td>
+</tr>
+<tr>
+<td align="left">allkeys-lru</td>
+<td>在主键空间中，优先移除最近未使用的key</td>
+</tr>
+<tr>
+<td align="left">volatile-random</td>
+<td>在设置了过期时间的键空间中，随机移除某个key</td>
+</tr>
+<tr>
+<td align="left">allkeys-random</td>
+<td>在主键空间中，随机移除某个key</td>
+</tr>
+<tr>
+<td align="left">volatile-ttl</td>
+<td>在设置了过期时间的键空间中，具有更早过期时间的key优先移除</td>
+</tr>
+<tr>
+<td align="left">noeviction</td>
+<td>当内存使用达到阈值的时候，所有引起申请内存的命令会报错</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h4 id="maxmemory-samples"><a href="#maxmemory-samples" class="headerlink" title="maxmemory-samples"></a>maxmemory-samples</h4><ul>
+<li>模板：maxmemory-samples 5</li>
+<li>作用：设置LRU和TTL的精度，精度越高越消耗CPU时间</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/09/05/technology/数据库/redis/配置/redis配置详细详解（5-redis限制类型配置）/" data-id="ck0q0dg0x000mmgux2jlpird0" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/">redis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术/">技术</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/09/06/technology/数据库/redis/配置/redis配置详细详解（6-AOF配置）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          redis配置详细详解（6.AOF配置）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/09/05/technology/数据库/redis/配置/redis配置详细详解（4-redis安全配置）/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">redis配置详细详解（4.redis安全配置）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/后端/">后端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础/">基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术/">技术</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日常/">日常</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/redis/" style="font-size: 15px;">redis</a> <a href="/tags/后端/" style="font-size: 20px;">后端</a> <a href="/tags/基础/" style="font-size: 10px;">基础</a> <a href="/tags/技术/" style="font-size: 17.5px;">技术</a> <a href="/tags/日常/" style="font-size: 12.5px;">日常</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/09/16/technology/java/集合/集合/">java集合</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/15/technology/java/锁/锁的种类和概念/">锁的种类和概念</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/10/technology/数据库/redis/应用场景/redis应用场景（1-分布式锁）/">redis应用场景（1.分布式锁）</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/09/technology/数据库/redis/配置/redis配置详细详解（9-高级配置）/">redis配置详细详解（9.高级配置）</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/08/technology/数据库/redis/配置/redis配置详细详解（8-缓慢请求、通知相关配置）/">redis配置详细详解（8.缓慢请求、通知相关配置）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 beyond_wei<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

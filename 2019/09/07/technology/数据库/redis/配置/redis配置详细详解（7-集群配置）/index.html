@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>redis配置详细详解（7.集群配置） | beyondWei-bolg</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="每天积累一点，每天收获一点">
+<meta name="keywords" content="技术,后端,redis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="redis配置详细详解（7.集群配置）">
+<meta property="og:url" content="http://yoursite.com/2019/09/07/technology/数据库/redis/配置/redis配置详细详解（7-集群配置）/index.html">
+<meta property="og:site_name" content="beyondWei-bolg">
+<meta property="og:description" content="每天积累一点，每天收获一点">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-09-19T01:35:28.758Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="redis配置详细详解（7.集群配置）">
+<meta name="twitter:description" content="每天积累一点，每天收获一点">
+  
+    <link rel="alternate" href="/atom.xml" title="beyondWei-bolg" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">beyondWei-bolg</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-technology/数据库/redis/配置/redis配置详细详解（7-集群配置）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/09/07/technology/数据库/redis/配置/redis配置详细详解（7-集群配置）/" class="article-date">
+  <time datetime="2019-09-07T12:44:29.000Z" itemprop="datePublished">2019-09-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      redis配置详细详解（7.集群配置）
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="每天积累一点，每天收获一点"><a href="#每天积累一点，每天收获一点" class="headerlink" title="每天积累一点，每天收获一点"></a>每天积累一点，每天收获一点</h4><a id="more"></a>
+
+<h4 id="cluster-enabled"><a href="#cluster-enabled" class="headerlink" title="cluster-enabled"></a>cluster-enabled</h4><ul>
+<li>模板：cluster-enabled yes</li>
+<li>作用：开启redis集群模式</li>
+</ul>
+<h4 id="cluster-config-file"><a href="#cluster-config-file" class="headerlink" title="cluster-config-file"></a>cluster-config-file</h4><ul>
+<li>模板：cluster-config-file nodes-6379.conf</li>
+<li>作用：集群节点配置文件</li>
+</ul>
+<h4 id="cluster-node-timeout"><a href="#cluster-node-timeout" class="headerlink" title="cluster-node-timeout"></a>cluster-node-timeout</h4><ul>
+<li>模板：cluster-node-timeout 15000</li>
+<li>作用：节点之间超时的时间</li>
+</ul>
+<h4 id="cluster-slave-validity-factor"><a href="#cluster-slave-validity-factor" class="headerlink" title="cluster-slave-validity-factor"></a>cluster-slave-validity-factor</h4><ul>
+<li>模板：cluster-slave-validity-factor 10</li>
+<li>作用：在进行故障转移的时候全部slave都会请求申请为master，但是有些slave可能与master断开连接一段时间了导致数据过于陈旧，不应该被提升为master。该参数就是用来判断slave节点与master断线的时间是否过长。判断方法是：比较slave断开连接的时间和(node-timeout * slave-validity-factor)+ repl-ping-slave-period如果节点超时时间为三十秒, 并且slave-validity-factor为10，假设默认的repl-ping-slave-period是10秒，即如果超过310秒slave将不会尝试进行故障转移</li>
+</ul>
+<h4 id="cluster-migration-barrier"><a href="#cluster-migration-barrier" class="headerlink" title="cluster-migration-barrier"></a>cluster-migration-barrier</h4><ul>
+<li>模板：cluster-migration-barrier 1</li>
+<li>作用：master的slave数量大于该值，slave才能迁移到其他孤立master上，如这个参数被设为2，那么只有当一个主节点拥有2个可工作的从节点时，它的一个从节点才会尝试迁移</li>
+</ul>
+<h4 id="cluster-require-full-coverage"><a href="#cluster-require-full-coverage" class="headerlink" title="cluster-require-full-coverage"></a>cluster-require-full-coverage</h4><ul>
+<li>模板：cluster-require-full-coverage yes</li>
+<li>作用：集群全部的slot有节点负责，集群状态才为ok并提供服务。设置为no可以在slot没有全部分配的时候提供服务。不建议打开该配置，这样会造成分区的时候，小分区的master一直在接受写请求，而造成很长时间数据不一致。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/09/07/technology/数据库/redis/配置/redis配置详细详解（7-集群配置）/" data-id="ck0q0dg030004mguxu30ohh5k" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/">redis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术/">技术</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/09/08/technology/数据库/redis/配置/redis配置详细详解（8-缓慢请求、通知相关配置）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          redis配置详细详解（8.缓慢请求、通知相关配置）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/09/06/technology/数据库/redis/配置/redis配置详细详解（6-AOF配置）/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">redis配置详细详解（6.AOF配置）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/后端/">后端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础/">基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术/">技术</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日常/">日常</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/redis/" style="font-size: 15px;">redis</a> <a href="/tags/后端/" style="font-size: 20px;">后端</a> <a href="/tags/基础/" style="font-size: 10px;">基础</a> <a href="/tags/技术/" style="font-size: 17.5px;">技术</a> <a href="/tags/日常/" style="font-size: 12.5px;">日常</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/09/16/technology/java/集合/集合/">java集合</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/15/technology/java/锁/锁的种类和概念/">锁的种类和概念</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/10/technology/数据库/redis/应用场景/redis应用场景（1-分布式锁）/">redis应用场景（1.分布式锁）</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/09/technology/数据库/redis/配置/redis配置详细详解（9-高级配置）/">redis配置详细详解（9.高级配置）</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/08/technology/数据库/redis/配置/redis配置详细详解（8-缓慢请求、通知相关配置）/">redis配置详细详解（8.缓慢请求、通知相关配置）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 beyond_wei<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
