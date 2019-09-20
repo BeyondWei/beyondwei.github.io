@@ -6,20 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>redis配置详细详解（7.集群配置） | beyondWei-bolg</title>
+  <title>Tag: redis配置 | beyondWei-bolg</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="每天积累一点，每天收获一点">
-<meta name="keywords" content="技术,后端,redis配置">
-<meta property="og:type" content="article">
-<meta property="og:title" content="redis配置详细详解（7.集群配置）">
-<meta property="og:url" content="http://yoursite.com/2019/09/07/technology/数据库/redis/配置/redis配置详细详解（7-集群配置）/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="beyondWei-bolg">
+<meta property="og:url" content="http://yoursite.com/tags/redis配置/index.html">
 <meta property="og:site_name" content="beyondWei-bolg">
-<meta property="og:description" content="每天积累一点，每天收获一点">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-20T02:12:25.097Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="redis配置详细详解（7.集群配置）">
-<meta name="twitter:description" content="每天积累一点，每天收获一点">
+<meta name="twitter:title" content="beyondWei-bolg">
   
     <link rel="alternative" href="/atom.xml" title="beyondWei-bolg" type="application/atom+xml">
   
@@ -145,108 +140,36 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-technology/数据库/redis/配置/redis配置详细详解（7-集群配置）" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      redis配置详细详解（7.集群配置）
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/09/09/technology/数据库/redis/配置/redis配置详细详解（9-高级配置）/" class="archive-article-date">
+  	<time datetime="2019-09-09T15:07:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-09</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/09/09/technology/数据库/redis/配置/redis配置详细详解（9-高级配置）/">redis配置详细详解（9.高级配置）</a>
     </h1>
   
 
-        
-        <a href="/2019/09/07/technology/数据库/redis/配置/redis配置详细详解（7-集群配置）/" class="archive-article-date">
-  	<time datetime="2019-09-07T12:44:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-07</time>
-</a>
-        
-      </header>
-    
-    <!-- 目录内容 -->
-
-    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
-          <span class="btn-bg"></span>
-          <span class="btn-text">文章导航</span>
-          </p>
-  <div id="toc-article" class="toc-article">
-      <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
-    <strong class="toc-title">文章目录</strong>
-           <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#每天积累一点，每天收获一点"><span class="toc-number">1.</span> <span class="toc-text">每天积累一点，每天收获一点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#cluster-enabled"><span class="toc-number">2.</span> <span class="toc-text">cluster-enabled</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#cluster-config-file"><span class="toc-number">3.</span> <span class="toc-text">cluster-config-file</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#cluster-node-timeout"><span class="toc-number">4.</span> <span class="toc-text">cluster-node-timeout</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#cluster-slave-validity-factor"><span class="toc-number">5.</span> <span class="toc-text">cluster-slave-validity-factor</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#cluster-migration-barrier"><span class="toc-number">6.</span> <span class="toc-text">cluster-migration-barrier</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#cluster-require-full-coverage"><span class="toc-number">7.</span> <span class="toc-text">cluster-require-full-coverage</span></a></li></ol>
-         </div>
-   <script type="text/javascript">
-  function showToc(){
-    var toc_article = document.getElementById("toc-article");
-    var show_toc_btn = document.getElementById("show-toc-btn");
-    toc_article.setAttribute("style","display:block");
-    show_toc_btn.setAttribute("style","display:none");
-    };
-  function showBtn(){
-    var toc_article = document.getElementById("toc-article");
-    var show_toc_btn = document.getElementById("show-toc-btn");
-    toc_article.setAttribute("style","display:none");
-    show_toc_btn.setAttribute("style","display:block");
-    };
-   </script>
-         
-<!-- 目录内容结束 -->
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="每天积累一点，每天收获一点"><a href="#每天积累一点，每天收获一点" class="headerlink" title="每天积累一点，每天收获一点"></a>每天积累一点，每天收获一点</h4><a id="more"></a>
-
-<h4 id="cluster-enabled"><a href="#cluster-enabled" class="headerlink" title="cluster-enabled"></a>cluster-enabled</h4><ul>
-<li>模板：cluster-enabled yes</li>
-<li>作用：开启redis集群模式</li>
-</ul>
-<h4 id="cluster-config-file"><a href="#cluster-config-file" class="headerlink" title="cluster-config-file"></a>cluster-config-file</h4><ul>
-<li>模板：cluster-config-file nodes-6379.conf</li>
-<li>作用：集群节点配置文件</li>
-</ul>
-<h4 id="cluster-node-timeout"><a href="#cluster-node-timeout" class="headerlink" title="cluster-node-timeout"></a>cluster-node-timeout</h4><ul>
-<li>模板：cluster-node-timeout 15000</li>
-<li>作用：节点之间超时的时间</li>
-</ul>
-<h4 id="cluster-slave-validity-factor"><a href="#cluster-slave-validity-factor" class="headerlink" title="cluster-slave-validity-factor"></a>cluster-slave-validity-factor</h4><ul>
-<li>模板：cluster-slave-validity-factor 10</li>
-<li>作用：在进行故障转移的时候全部slave都会请求申请为master，但是有些slave可能与master断开连接一段时间了导致数据过于陈旧，不应该被提升为master。该参数就是用来判断slave节点与master断线的时间是否过长。判断方法是：比较slave断开连接的时间和(node-timeout * slave-validity-factor)+ repl-ping-slave-period如果节点超时时间为三十秒, 并且slave-validity-factor为10，假设默认的repl-ping-slave-period是10秒，即如果超过310秒slave将不会尝试进行故障转移</li>
-</ul>
-<h4 id="cluster-migration-barrier"><a href="#cluster-migration-barrier" class="headerlink" title="cluster-migration-barrier"></a>cluster-migration-barrier</h4><ul>
-<li>模板：cluster-migration-barrier 1</li>
-<li>作用：master的slave数量大于该值，slave才能迁移到其他孤立master上，如这个参数被设为2，那么只有当一个主节点拥有2个可工作的从节点时，它的一个从节点才会尝试迁移</li>
-</ul>
-<h4 id="cluster-require-full-coverage"><a href="#cluster-require-full-coverage" class="headerlink" title="cluster-require-full-coverage"></a>cluster-require-full-coverage</h4><ul>
-<li>模板：cluster-require-full-coverage yes</li>
-<li>作用：集群全部的slot有节点负责，集群状态才为ok并提供服务。设置为no可以在slot没有全部分配的时候提供服务。不建议打开该配置，这样会造成分区的时候，小分区的master一直在接受写请求，而造成很长时间数据不一致。</li>
-</ul>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -266,154 +189,387 @@
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/07/technology/数据库/redis/配置/redis配置详细详解（7-集群配置）/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
   
-<nav id="article-nav">
-  
-    <a href="/2019/09/08/technology/数据库/redis/配置/redis配置详细详解（8-缓慢请求、通知相关配置）/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          redis配置详细详解（8.缓慢请求、通知相关配置）
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2019/09/06/technology/数据库/redis/配置/redis配置详细详解（6-AOF配置）/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">redis配置详细详解（6.AOF配置）</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/09/08/technology/数据库/redis/配置/redis配置详细详解（8-缓慢请求、通知相关配置）/" class="archive-article-date">
+  	<time datetime="2019-09-08T15:05:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-08</time>
+</a>
         </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#每天积累一点，每天收获一点"><span class="toc-number">1.</span> <span class="toc-text">每天积累一点，每天收获一点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#cluster-enabled"><span class="toc-number">2.</span> <span class="toc-text">cluster-enabled</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#cluster-config-file"><span class="toc-number">3.</span> <span class="toc-text">cluster-config-file</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#cluster-node-timeout"><span class="toc-number">4.</span> <span class="toc-text">cluster-node-timeout</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#cluster-slave-validity-factor"><span class="toc-number">5.</span> <span class="toc-text">cluster-slave-validity-factor</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#cluster-migration-barrier"><span class="toc-number">6.</span> <span class="toc-text">cluster-migration-barrier</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#cluster-require-full-coverage"><span class="toc-number">7.</span> <span class="toc-text">cluster-require-full-coverage</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/09/08/technology/数据库/redis/配置/redis配置详细详解（8-缓慢请求、通知相关配置）/">redis配置详细详解（8.缓慢请求、通知相关配置）</a>
+    </h1>
+  
+
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技术</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">后端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">redis配置</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+
         </div>
-        
-    </div>
-</aside>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/09/07/technology/数据库/redis/配置/redis配置详细详解（7-集群配置）/" class="archive-article-date">
+  	<time datetime="2019-09-07T12:44:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-07</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/09/07/technology/数据库/redis/配置/redis配置详细详解（7-集群配置）/">redis配置详细详解（7.集群配置）</a>
+    </h1>
+  
 
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技术</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">后端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">redis配置</a>
+        		</li>
+      		
+		</ul>
+	</div>
 
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/09/06/technology/数据库/redis/配置/redis配置详细详解（6-AOF配置）/" class="archive-article-date">
+  	<time datetime="2019-09-06T12:42:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-06</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/09/06/technology/数据库/redis/配置/redis配置详细详解（6-AOF配置）/">redis配置详细详解（6.AOF配置）</a>
+    </h1>
+  
+
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技术</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">后端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">redis配置</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/09/05/technology/数据库/redis/配置/redis配置详细详解（5-redis限制类型配置）/" class="archive-article-date">
+  	<time datetime="2019-09-05T12:33:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-05</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/09/05/technology/数据库/redis/配置/redis配置详细详解（5-redis限制类型配置）/">redis配置详细详解（5.redis限制类型配置）</a>
+    </h1>
+  
+
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技术</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">后端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">redis配置</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/09/05/technology/数据库/redis/配置/redis配置详细详解（4-redis安全配置）/" class="archive-article-date">
+  	<time datetime="2019-09-05T12:31:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-05</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/09/05/technology/数据库/redis/配置/redis配置详细详解（4-redis安全配置）/">redis配置详细详解（4.redis安全配置）</a>
+    </h1>
+  
+
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技术</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">后端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">redis配置</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/09/04/technology/数据库/redis/配置/redis配置详细详解（3-redis分布式配置（主从配置））/" class="archive-article-date">
+  	<time datetime="2019-09-04T13:54:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-04</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/09/04/technology/数据库/redis/配置/redis配置详细详解（3-redis分布式配置（主从配置））/">redis配置详细详解（3.redis分布式配置（主从配置））</a>
+    </h1>
+  
+
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技术</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">后端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">redis配置</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/09/03/technology/数据库/redis/配置/redis配置详细详解（2-数据持久化（快照）配置）/" class="archive-article-date">
+  	<time datetime="2019-09-03T12:55:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/09/03/technology/数据库/redis/配置/redis配置详细详解（2-数据持久化（快照）配置）/">redis配置详细详解（2.数据持久化（快照）配置）</a>
+    </h1>
+  
+
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技术</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">后端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">redis配置</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/09/02/technology/数据库/redis/配置/redis配置详细详解（1-基本配置信息）/" class="archive-article-date">
+  	<time datetime="2019-09-02T12:54:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-02</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/09/02/technology/数据库/redis/配置/redis配置详细详解（1-基本配置信息）/">redis配置详细详解（1.基本配置信息）</a>
+    </h1>
+  
+
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技术</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">后端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">redis配置</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+  
+    </div></section>
+  
 
     
-      <div class="valine_comment"></div>
-<!--载入js，在</body>之前插入即可-->
-<!--Leancloud 操作库:-->
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<!--Valine 的核心代码库-->
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-<script>
-  var notify = 'false' == true ? true : false;
-  var verify = 'false' == true ? true : false;
-  new Valine({
-      // AV 对象来自上面引入av-min.js(老司机们不要开车➳♡゛扎心了老铁)
-      av: AV,
-      el: '.valine_comment',
-      emoticon_url: 'https://cloud.panjunwen.com/alu',
-      emoticon_list: ["狂汗.png","不说话.png","汗.png","坐等.png","献花.png","不高兴.png","中刀.png","害羞.png","皱眉.png","小眼睛.png","暗地观察.png"],
-      app_id: '7SFbJMHEkrvMWG5hYuHyE5v9-gzGzoHsz',
-      app_key: '5e0tdPKFYiY8zm9SViG3i9vR',
-      placeholder: 'Just go go'
-    });
-</script>
-
-
-    
-   
-   
- 
-  
-  
-
-  
-
-  
-
-  
 
 
           </div>
@@ -436,9 +592,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

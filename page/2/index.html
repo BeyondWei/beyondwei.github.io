@@ -165,77 +165,10 @@
 <!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
-
-<h4 id="slowlog-log-slower-than"><a href="#slowlog-log-slower-than" class="headerlink" title="slowlog-log-slower-than"></a>slowlog-log-slower-than</h4><ul>
-<li>模板：slowlog-log-slower-than 10000</li>
-<li>作用：命令查过时间（微妙为单位，因此 1000000 代表一秒）则记录日志</li>
-</ul>
-<h4 id="slowlog-max-len"><a href="#slowlog-max-len" class="headerlink" title="slowlog-max-len"></a>slowlog-max-len</h4><ul>
-<li>模板：slowlog-max-len 128</li>
-<li>作用：slow log 的长度。当一个新命令被记录的时候最早的命令将被从队列中移除（设置为 0 将强制每个命令都会记录）</li>
-</ul>
-<h4 id="notify-keyspace-events"><a href="#notify-keyspace-events" class="headerlink" title="notify-keyspace-events"></a>notify-keyspace-events</h4><ul>
-<li><p>模板：notify-keyspace-events EX</p>
-</li>
-<li><p>作用：通知事件的类型</p>
-</li>
-<li><p><strong>参数</strong></p>
-<table>
-<thead>
-<tr>
-<th align="left">参数</th>
-<th>发送通知</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">K</td>
-<td>键空间通知，所有通知以 keyspace@ 为前缀，针对Key</td>
-</tr>
-<tr>
-<td align="left">E</td>
-<td>键事件通知，所有通知以 keyevent@ 为前缀，针对event</td>
-</tr>
-<tr>
-<td align="left">g</td>
-<td>DEL 、 EXPIRE 、 RENAME 等类型无关的通用命令的通知</td>
-</tr>
-<tr>
-<td align="left">$</td>
-<td>字符串命令的通知</td>
-</tr>
-<tr>
-<td align="left">l</td>
-<td>列表命令的通知</td>
-</tr>
-<tr>
-<td align="left">s</td>
-<td>集合命令的通知</td>
-</tr>
-<tr>
-<td align="left">h</td>
-<td>哈希命令的通知</td>
-</tr>
-<tr>
-<td align="left">z</td>
-<td>有序集合命令的通知</td>
-</tr>
-<tr>
-<td align="left">x</td>
-<td>过期事件：每当有过期键被删除时发送</td>
-</tr>
-<tr>
-<td align="left">e</td>
-<td>驱逐(evict)事件：每当有键因为 maxmemory 政策而被删除时发送</td>
-</tr>
-<tr>
-<td align="left">A</td>
-<td>参数 g$lshzxe 的别名，相当于是All</td>
-</tr>
-</tbody></table>
-</li>
-</ul>
-
+        <p><em>一天又一天，一年又一年</em></p>
+        
+          <a class="article-more-a" href="/2019/09/08/technology/数据库/redis/配置/redis配置详细详解（8-缓慢请求、通知相关配置）/#more">more >></a>
+        
       
 
       
@@ -256,7 +189,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">redis配置</a>
         		</li>
       		
 		</ul>
@@ -339,7 +272,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">redis配置</a>
         		</li>
       		
 		</ul>
@@ -422,7 +355,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">redis配置</a>
         		</li>
       		
 		</ul>
@@ -556,7 +489,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">redis配置</a>
         		</li>
       		
 		</ul>
@@ -639,7 +572,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">redis配置</a>
         		</li>
       		
 		</ul>
@@ -797,6 +730,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">redis配置</a>
               </li>
             
             <div class="clearfix"></div>
