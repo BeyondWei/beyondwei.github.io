@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>redis应用场景（1.分布式锁） | beyondWei-bolg</title>
+  <title>shell脚本语言 | beyondWei-bolg</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="会了Markdown写博客都帅多了">
-<meta name="keywords" content="技术,后端,redis">
+  <meta name="description" content="记录简单的脚本语言">
+<meta name="keywords" content="脚本,shell">
 <meta property="og:type" content="article">
-<meta property="og:title" content="redis应用场景（1.分布式锁）">
-<meta property="og:url" content="http://yoursite.com/2019/09/10/technology/数据库/redis/应用场景/redis应用场景（1-分布式锁）/index.html">
+<meta property="og:title" content="shell脚本语言">
+<meta property="og:url" content="http://yoursite.com/2019/09/19/life/shell脚本语言/index.html">
 <meta property="og:site_name" content="beyondWei-bolg">
-<meta property="og:description" content="会了Markdown写博客都帅多了">
+<meta property="og:description" content="记录简单的脚本语言">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-19T01:35:28.871Z">
+<meta property="og:updated_time" content="2019-09-20T02:02:21.067Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="redis应用场景（1.分布式锁）">
-<meta name="twitter:description" content="会了Markdown写博客都帅多了">
+<meta name="twitter:title" content="shell脚本语言">
+<meta name="twitter:description" content="记录简单的脚本语言">
   
     <link rel="alternative" href="/atom.xml" title="beyondWei-bolg" type="application/atom+xml">
   
@@ -145,20 +145,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-technology/数据库/redis/应用场景/redis应用场景（1-分布式锁）" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-life/shell脚本语言" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      redis应用场景（1.分布式锁）
+      shell脚本语言
     </h1>
   
 
         
-        <a href="/2019/09/10/technology/数据库/redis/应用场景/redis应用场景（1-分布式锁）/" class="archive-article-date">
-  	<time datetime="2019-09-10T14:08:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-10</time>
+        <a href="/2019/09/19/life/shell脚本语言/" class="archive-article-date">
+  	<time datetime="2019-09-19T02:04:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-19</time>
 </a>
         
       </header>
@@ -172,7 +172,7 @@
   <div id="toc-article" class="toc-article">
       <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
     <strong class="toc-title">文章目录</strong>
-           <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#简易的分布式锁"><span class="toc-number">1.</span> <span class="toc-text">简易的分布式锁</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Java实现"><span class="toc-number">1.1.</span> <span class="toc-text">Java实现</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分布式锁工具"><span class="toc-number">2.</span> <span class="toc-text">分布式锁工具</span></a></li></ol>
+           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#字符串截取案例"><span class="toc-number">1.</span> <span class="toc-text">字符串截取案例</span></a></li></ol>
          </div>
    <script type="text/javascript">
   function showToc(){
@@ -192,110 +192,59 @@
 <!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
-        <p><em>会了Markdown写博客都帅多了</em></p>
+        <p><em>记录简单的脚本语言</em></p>
 <a id="more"></a>
+<p>##shell 常用的关键字</p>
+<table>
+<thead>
+<tr>
+<th align="left">关键字</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">echo</td>
+<td align="left">打印</td>
+</tr>
+<tr>
+<td align="left">expr</td>
+<td align="left">执行计算；</td>
+</tr>
+</tbody></table>
+<h2 id="字符串截取案例"><a href="#字符串截取案例" class="headerlink" title="字符串截取案例"></a>字符串截取案例</h2><p>`</p>
+<pre><code>#!bin/bash
+var=&quot;http://www.runoob.com/linux/linux-shell-variable.html&quot;
 
-<h3 id="简易的分布式锁"><a href="#简易的分布式锁" class="headerlink" title="简易的分布式锁"></a>简易的分布式锁</h3><div id="flowchart-0" class="flow-chart"></div>
- ` setnx user:1001 true ` 是1时即返回成功，0则是获取失败
-### 分布式锁加强版
-    在上一个简易的分布式锁可以满足一定的需求，但是存在不少的问题。
+s1=${var%%t*}#h
+s2=${var%t*}#http://www.runoob.com/linux/linux-shell-variable.h
+s3=${var%%.*}#http://www
+s4=${var#*/}#/www.runoob.com/linux/linux-shell-variable.html
+s5=${var##*/}#linux-shell-variable.html</code></pre><p>`</p>
+<table>
+<thead>
+<tr>
+<th align="left">关键字</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">%%</td>
+<td align="left">从前开始截取前面的</td>
+</tr>
+<tr>
+<td align="left">%</td>
+<td align="left">从后开始截取前面的</td>
+</tr>
+<tr>
+<td align="left">#</td>
+<td align="left">从前开始截取后面的</td>
+</tr>
+<tr>
+<td align="left">##</td>
+<td align="left">从后开始截取后面的</td>
+</tr>
+</tbody></table>
 
-<ul>
-<li><p>问题1</p>
-<p>  当一个redis的用户端获取了锁以后，在处理业务的过成中，出现了突然停电或者其他突然导致线程死亡的情况，<br>  会使该客户端不能及时释放锁资源，导致该锁会永远处在上锁状态。</p>
-</li>
-<li><p>解决</p>
-<p>  在创建锁的同时给他加上有效期，超过有效期就删除。<code>set user:1001 true ex 10 nx</code></p>
-</li>
-<li><p>问题2 </p>
-<p>  该锁不支持可重入，同一线程获取两次锁将会造成死锁</p>
-</li>
-<li><p>解决<br>  在set value 时设置uuid，创建锁时，返回锁的值，重入时判断锁的值是否相同</p>
-</li>
-</ul>
-<h4 id="Java实现"><a href="#Java实现" class="headerlink" title="Java实现"></a>Java实现</h4><pre><code>/**
- * 获取分布式锁
- *
- * @param keyName
- * @param time    秒
- * @return
- */
-public static boolean getLock(@NotNull String keyName, @NotNull String value, @NotNull Integer time) {
-    //判断是否可以直接获取锁资源(可以重入)
-    String lockValue = StringUtil.objectToString(redisTemplate.opsForValue().get(keyName));
-    if (value.equals(lockValue)) {
-        return true;
-    }
-    if (redisTemplate.opsForValue().setIfAbsent(keyName, value, Duration.ofSeconds(time))) {
-        return true;
-    }
-    return false;
-}
-
-/**
- * 解锁
- */
-public static void unLock(@NotNull String keyName, @NotNull String value) throws Exception {
-    String lockValue = StringUtil.objectToString(redisTemplate.opsForValue().get(keyName));
-    if (lockValue == null || lockValue.equals(value)) {
-        redisTemplate.delete(keyName);
-    }else {
-        throw new Exception(&quot;无法解锁&quot;);
-    }
-}</code></pre><ul>
-<li><p>问题3</p>
-<p>  如何合理的设置分布式锁的超时时间，如果在业务处理时间内分布式锁超时，该锁将会失去对资源的保护。</p>
-</li>
-<li><p>解决</p>
-<p>  在获取锁的主线程获取锁的同时生成子线程，子线程随主线程的消亡而停止(就是 <code>守护线程的意思</code>)。子线程的作用是，当锁的超时时间快到的时候重新为锁设置超时时间。</p>
-</li>
-</ul>
-<ul>
-<li><p>问题4</p>
-<p>  不想一个线程没有取到锁就之间放弃</p>
-</li>
-<li><p>解决</p>
-<p>  在尝试获取锁时增加尝试获取锁的次数或者增加获取时间</p>
-</li>
-</ul>
-<pre><code>/**
- * 尝试获取锁
- * @param keyName
- * @param keyValue
- * @param time
- * @param tryTimes  尝试次数
- * @return
- */
-public static boolean tryRedisLock(@NotNull String keyName, @NotNull String keyValue, @NotNull Integer time,
-                                   Integer tryTimes) {
-    if (tryTimes != null) {
-        while (true) {
-            boolean redisLock = getRedisLock(keyName, keyValue, time);
-            if (redisLock) {
-                return true;
-            } else {
-                tryTimes--;
-                if (tryTimes == 0) {
-                    return false;
-                }
-            }
-        }
-    } else {
-        return getRedisLock(keyName, keyValue, time);
-    }
-} </code></pre><h3 id="分布式锁工具"><a href="#分布式锁工具" class="headerlink" title="分布式锁工具"></a>分布式锁工具</h3><pre><code>redisson</code></pre><script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">st=>start: 开始
-cond=>condition: （尝试获取锁）
- setnx user:1001 true 
-op=>operation: 业务操作
-op2=>operation: (删除锁) 
-del setnx user:1001
-e1=>end: 没有获取锁
-e2=>end: 结束
-
-st->cond
-cond(yes)->op->op2
-cond(no)->e1
-op2->e2</textarea><textarea id="flowchart-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script>
       
 
       
@@ -329,15 +278,11 @@ op2->e2</textarea><textarea id="flowchart-0-options" style="display: none">{"sca
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技术</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">脚本</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">后端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">shell</a>
         		</li>
       		
 		</ul>
@@ -393,7 +338,7 @@ op2->e2</textarea><textarea id="flowchart-0-options" style="display: none">{"sca
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/10/technology/数据库/redis/应用场景/redis应用场景（1-分布式锁）/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/19/life/shell脚本语言/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -407,18 +352,9 @@ op2->e2</textarea><textarea id="flowchart-0-options" style="display: none">{"sca
   
 <nav id="article-nav">
   
-    <a href="/2019/09/15/technology/java/锁/锁的种类和概念/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          锁的种类和概念
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/09/09/technology/数据库/redis/配置/redis配置详细详解（9-高级配置）/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">redis配置详细详解（9.高级配置）</div>
+    <a href="/2019/09/16/technology/java/集合/集合/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java集合</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -445,7 +381,7 @@ op2->e2</textarea><textarea id="flowchart-0-options" style="display: none">{"sca
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#简易的分布式锁"><span class="toc-number">1.</span> <span class="toc-text">简易的分布式锁</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Java实现"><span class="toc-number">1.1.</span> <span class="toc-text">Java实现</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分布式锁工具"><span class="toc-number">2.</span> <span class="toc-text">分布式锁工具</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#字符串截取案例"><span class="toc-number">1.</span> <span class="toc-text">字符串截取案例</span></a></li></ol>
                     </div>
                 </span>
             </div>
