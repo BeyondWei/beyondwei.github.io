@@ -6,20 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>shell脚本语言 | beyondWei-bolg</title>
+  <title>JSR-107 | beyondWei-bolg</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="记录简单的脚本语言">
-<meta name="keywords" content="脚本,shell">
+  <meta name="keywords" content="java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="shell脚本语言">
-<meta property="og:url" content="http://yoursite.com/2019/09/19/life/shell脚本语言/index.html">
+<meta property="og:title" content="JSR-107">
+<meta property="og:url" content="http://yoursite.com/2019/10/28/technology/java/缓存/JSR-107/index.html">
 <meta property="og:site_name" content="beyondWei-bolg">
-<meta property="og:description" content="记录简单的脚本语言">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-20T02:20:26.721Z">
+<meta property="og:image" content="http://yoursite.com/2019/10/28/technology/java/缓存/JSR-107/image/JSR.npg">
+<meta property="og:updated_time" content="2019-10-28T12:13:51.660Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="shell脚本语言">
-<meta name="twitter:description" content="记录简单的脚本语言">
+<meta name="twitter:title" content="JSR-107">
+<meta name="twitter:image" content="http://yoursite.com/2019/10/28/technology/java/缓存/JSR-107/image/JSR.npg">
   
     <link rel="alternative" href="/atom.xml" title="beyondWei-bolg" type="application/atom+xml">
   
@@ -145,103 +144,32 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-life/shell脚本语言" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-technology/java/缓存/JSR-107" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      shell脚本语言
+      JSR-107
     </h1>
   
 
         
-        <a href="/2019/09/19/life/shell脚本语言/" class="archive-article-date">
-  	<time datetime="2019-09-19T02:04:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-19</time>
+        <a href="/2019/10/28/technology/java/缓存/JSR-107/" class="archive-article-date">
+  	<time datetime="2019-10-28T11:54:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-28</time>
 </a>
         
       </header>
     
     <!-- 目录内容 -->
-
-    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
-          <span class="btn-bg"></span>
-          <span class="btn-text">文章导航</span>
-          </p>
-  <div id="toc-article" class="toc-article">
-      <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
-    <strong class="toc-title">文章目录</strong>
-           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#字符串截取案例"><span class="toc-number">1.</span> <span class="toc-text">字符串截取案例</span></a></li></ol>
-         </div>
-   <script type="text/javascript">
-  function showToc(){
-    var toc_article = document.getElementById("toc-article");
-    var show_toc_btn = document.getElementById("show-toc-btn");
-    toc_article.setAttribute("style","display:block");
-    show_toc_btn.setAttribute("style","display:none");
-    };
-  function showBtn(){
-    var toc_article = document.getElementById("toc-article");
-    var show_toc_btn = document.getElementById("show-toc-btn");
-    toc_article.setAttribute("style","display:none");
-    show_toc_btn.setAttribute("style","display:block");
-    };
-   </script>
-         
+   
 <!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
-        <p><em>记录简单的脚本语言</em></p>
-<a id="more"></a>
-<p>##shell 常用的关键字</p>
-<table>
-<thead>
-<tr>
-<th align="left">关键字</th>
-<th align="left">作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">echo</td>
-<td align="left">打印</td>
-</tr>
-<tr>
-<td align="left">expr</td>
-<td align="left">执行计算；</td>
-</tr>
-</tbody></table>
-<h2 id="字符串截取案例"><a href="#字符串截取案例" class="headerlink" title="字符串截取案例"></a>字符串截取案例</h2><pre><code>#!bin/bash
-var=&quot;http://www.runoob.com/linux/linux-shell-variable.html&quot;
+        <img src="image/JSR.npg">
 
-s1=${var%%t*}#h
-s2=${var%t*}#http://www.runoob.com/linux/linux-shell-variable.h
-s3=${var%%.*}#http://www
-s4=${var#*/}#/www.runoob.com/linux/linux-shell-variable.html
-s5=${var##*/}#linux-shell-variable.html</code></pre><table>
-<thead>
-<tr>
-<th align="left">关键字</th>
-<th align="left">作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">%%</td>
-<td align="left">从前开始截取前面的</td>
-</tr>
-<tr>
-<td align="left">%</td>
-<td align="left">从后开始截取前面的</td>
-</tr>
-<tr>
-<td align="left">#</td>
-<td align="left">从前开始截取后面的</td>
-</tr>
-<tr>
-<td align="left">##</td>
-<td align="left">从后开始截取后面的</td>
-</tr>
-</tbody></table>
+
 
       
 
@@ -276,11 +204,7 @@ s5=${var##*/}#linux-shell-variable.html</code></pre><table>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">脚本</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">shell</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
       		
 		</ul>
@@ -336,7 +260,7 @@ s5=${var##*/}#linux-shell-variable.html</code></pre><table>
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/19/life/shell脚本语言/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/10/28/technology/java/缓存/JSR-107/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -350,18 +274,9 @@ s5=${var##*/}#linux-shell-variable.html</code></pre><table>
   
 <nav id="article-nav">
   
-    <a href="/2019/09/25/technology/spring/springBoot/application-yml配置说明-md/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          application.yml配置说明
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/09/16/technology/java/集合/集合/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">java集合</div>
+    <a href="/2019/10/28/technology/工具/git/Git命令大全/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Git命令大全</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -388,7 +303,7 @@ s5=${var##*/}#linux-shell-variable.html</code></pre><table>
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#字符串截取案例"><span class="toc-number">1.</span> <span class="toc-text">字符串截取案例</span></a></li></ol>
+                    目录，不存在的…
                     </div>
                 </span>
             </div>
