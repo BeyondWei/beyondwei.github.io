@@ -142,6 +142,81 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-technology/工具/git/Git命令大全" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/28/technology/工具/git/Git命令大全/">Git命令大全</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/28/technology/工具/git/Git命令大全/" class="archive-article-date">
+  	<time datetime="2019-10-28T09:40:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-28</time>
+</a>
+        
+      </header>
+    
+    <!-- 目录内容 -->
+   
+<!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>git命令</em></p>
+        
+          <a class="article-more-a" href="/2019/10/28/technology/工具/git/Git命令大全/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-technology/nginx/nginx配置规则说明" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -165,26 +240,10 @@
 <!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
-
-<h2 id="nginx相关命令"><a href="#nginx相关命令" class="headerlink" title="nginx相关命令"></a>nginx相关命令</h2><ul>
-<li>启动命令  ：nginx -c config </li>
-<li>配置文件测试命令 ：nginx -c config -t</li>
-<li>重启配置文件 ：nginx -s reload</li>
-</ul>
-<h2 id="配置规则"><a href="#配置规则" class="headerlink" title="配置规则"></a>配置规则</h2><h3 id="server配置"><a href="#server配置" class="headerlink" title="server配置"></a>server配置</h3><pre><code>ip + port = root  </code></pre><h3 id="负载均衡"><a href="#负载均衡" class="headerlink" title="负载均衡"></a>负载均衡</h3><ul>
-<li><p>http 模块中增加 upstream </p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">  upstream www.baidu.com&#123;</span><br><span class="line">      server 127.0.0.1:9100 weight=3;</span><br><span class="line">      server 127.0.0.1:9200 weight=1;</span><br><span class="line">  &#125;</span><br><span class="line"># weight为权重，数值越大权重越大，负载均衡被分配到的几率越大</span><br><span class="line"># upstream 会对配置的服务器进行健康检查，如果后端服务器不可用，将不会把请求转发到该服务器</span><br><span class="line"># 默认为轮询请求；weight为权重策略；</span><br><span class="line"></span><br><span class="line"># ip_hash 也叫ip绑定，每个请求按访问的ip的hash值分配，这样每个访问客户端会固定访问一个后端服务器，这样可以解决会话Session丢失问题；</span><br><span class="line">  upstream www.baidu.com &#123;</span><br><span class="line">      ip_hash;</span><br><span class="line">      server 127.0.0.1:9100;</span><br><span class="line">      server 127.0.0.1:9200;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"># 最少连接策略，将请求转发到连接数最少的服务器上；</span><br><span class="line">  upstream www.baidu.com &#123;</span><br><span class="line">      least_conn;</span><br><span class="line">      server 127.0.0.1:9100;</span><br><span class="line">      server 127.0.0.1:9200;</span><br><span class="line">  &#125;    </span><br><span class="line"></span><br><span class="line">  upstream www.baidu.com &#123;</span><br><span class="line">      server 127.0.0.1:9100 backup;# 当其他非backup的服务器都down的时候，才会启动本机器</span><br><span class="line">      server 127.0.0.1:9200 down; # 表示本服务器是处于 down状态，不参与服务提供</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>server 模块中配置负载均衡</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">location /baidu&#123;</span><br><span class="line">    proxy_pass http://www.baidu.com;</span><br><span class="line">&#125;</span><br><span class="line"># 启动www.baidu.com 要与upstream 中的字符串相同</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h2 id="nginx应用场景"><a href="#nginx应用场景" class="headerlink" title="nginx应用场景"></a>nginx应用场景</h2><ul>
-<li>静态代理：nginx对静态文件处理的性能远高于tomcat</li>
-</ul>
-
+        <p><em>nging命令</em></p>
+        
+          <a class="article-more-a" href="/2019/10/21/technology/nginx/nginx配置规则说明/#more">more >></a>
+        
       
 
       
@@ -470,85 +529,6 @@
 
 
   
-    <article id="post-technology/java/集合/集合" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/16/technology/java/集合/集合/">java集合</a>
-    </h1>
-  
-
-        
-        <a href="/2019/09/16/technology/java/集合/集合/" class="archive-article-date">
-  	<time datetime="2019-09-16T13:58:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-16</time>
-</a>
-        
-      </header>
-    
-    <!-- 目录内容 -->
-   
-<!-- 目录内容结束 -->
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><em>集合很重要</em></p>
-        
-          <a class="article-more-a" href="/2019/09/16/technology/java/集合/集合/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">后端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -646,19 +626,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">日常</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">脚本</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">日常</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">技术</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -679,6 +659,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">

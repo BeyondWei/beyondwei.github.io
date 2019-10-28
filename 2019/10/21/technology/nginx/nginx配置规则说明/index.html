@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>nginx配置规则说明 | beyondWei-bolg</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="nginx相关命令 启动命令  ：nginx -c config  配置文件测试命令 ：nginx -c config -t 重启配置文件 ：nginx -s reload  配置规则server配置ip + port = root  负载均衡 http 模块中增加 upstream    1234567891011121314151617181920212223242526  upstrea">
+  <meta name="description" content="nging命令">
 <meta name="keywords" content="nginx">
 <meta property="og:type" content="article">
 <meta property="og:title" content="nginx配置规则说明">
 <meta property="og:url" content="http://yoursite.com/2019/10/21/technology/nginx/nginx配置规则说明/index.html">
 <meta property="og:site_name" content="beyondWei-bolg">
-<meta property="og:description" content="nginx相关命令 启动命令  ：nginx -c config  配置文件测试命令 ：nginx -c config -t 重启配置文件 ：nginx -s reload  配置规则server配置ip + port = root  负载均衡 http 模块中增加 upstream    1234567891011121314151617181920212223242526  upstrea">
+<meta property="og:description" content="nging命令">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-28T08:55:29.111Z">
+<meta property="og:updated_time" content="2019-10-28T09:47:17.012Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nginx配置规则说明">
-<meta name="twitter:description" content="nginx相关命令 启动命令  ：nginx -c config  配置文件测试命令 ：nginx -c config -t 重启配置文件 ：nginx -s reload  配置规则server配置ip + port = root  负载均衡 http 模块中增加 upstream    1234567891011121314151617181920212223242526  upstrea">
+<meta name="twitter:description" content="nging命令">
   
     <link rel="alternative" href="/atom.xml" title="beyondWei-bolg" type="application/atom+xml">
   
@@ -164,11 +164,36 @@
       </header>
     
     <!-- 目录内容 -->
-   
+
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+  <div id="toc-article" class="toc-article">
+      <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+    <strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#nginx相关命令"><span class="toc-number">1.</span> <span class="toc-text">nginx相关命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置规则"><span class="toc-number">2.</span> <span class="toc-text">配置规则</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#server配置"><span class="toc-number">2.1.</span> <span class="toc-text">server配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#负载均衡"><span class="toc-number">2.2.</span> <span class="toc-text">负载均衡</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nginx应用场景"><span class="toc-number">3.</span> <span class="toc-text">nginx应用场景</span></a></li></ol>
+         </div>
+   <script type="text/javascript">
+  function showToc(){
+    var toc_article = document.getElementById("toc-article");
+    var show_toc_btn = document.getElementById("show-toc-btn");
+    toc_article.setAttribute("style","display:block");
+    show_toc_btn.setAttribute("style","display:none");
+    };
+  function showBtn(){
+    var toc_article = document.getElementById("toc-article");
+    var show_toc_btn = document.getElementById("show-toc-btn");
+    toc_article.setAttribute("style","display:none");
+    show_toc_btn.setAttribute("style","display:block");
+    };
+   </script>
+         
 <!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
+        <p><em>nging命令</em></p>
+<a id="more"></a>
 
 <h2 id="nginx相关命令"><a href="#nginx相关命令" class="headerlink" title="nginx相关命令"></a>nginx相关命令</h2><ul>
 <li>启动命令  ：nginx -c config </li>
@@ -290,6 +315,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2019/10/28/technology/工具/git/Git命令大全/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Git命令大全
+        
+      </div>
+    </a>
   
   
     <a href="/2019/10/18/technology/nginx/ngnix配置详解/" id="article-nav-older" class="article-nav-link-wrap">
@@ -458,19 +492,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">日常</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">脚本</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">日常</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">技术</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -491,6 +525,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
