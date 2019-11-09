@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>JSR-107 | beyondWei-bolg</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="缓存">
-<meta name="keywords" content="java,缓存">
+  <meta name="description" content="JSR缓存">
+<meta name="keywords" content="缓存,java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JSR-107">
 <meta property="og:url" content="http://yoursite.com/2019/10/28/technology/java/缓存/JSR-107/index.html">
 <meta property="og:site_name" content="beyondWei-bolg">
-<meta property="og:description" content="缓存">
+<meta property="og:description" content="JSR缓存">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/images/technology/JSR.png">
-<meta property="og:updated_time" content="2019-10-29T01:22:00.166Z">
+<meta property="og:updated_time" content="2019-10-29T01:48:18.863Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JSR-107">
-<meta name="twitter:description" content="缓存">
+<meta name="twitter:description" content="JSR缓存">
 <meta name="twitter:image" content="http://yoursite.com/images/technology/JSR.png">
   
     <link rel="alternative" href="/atom.xml" title="beyondWei-bolg" type="application/atom+xml">
@@ -170,10 +170,14 @@
 <!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
-        <p><em>缓存</em></p>
+        <p><em>JSR缓存</em></p>
 <a id="more"></a>
 
-
+<h2 id="JSR架构"><a href="#JSR架构" class="headerlink" title="JSR架构"></a>JSR架构</h2><ul>
+<li>CachingProvider 缓存提供者</li>
+<li>CacheManager 缓存管理者</li>
+<li>Cache 缓存</li>
+</ul>
 <p><img src="/images/technology/JSR.png" alt="JSR架构图"></p>
 
       
@@ -209,11 +213,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">缓存</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">缓存</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
       		
 		</ul>
@@ -283,6 +287,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2019/10/29/technology/spring/Spring缓存抽象/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Spring缓存抽象
+        
+      </div>
+    </a>
+  
   
     <a href="/2019/10/28/technology/工具/git/Git命令大全/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">Git命令大全</div>
@@ -312,7 +325,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#JSR架构"><span class="toc-number">1.</span> <span class="toc-text">JSR架构</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -466,11 +479,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">zookeeper</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">缓存</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">配置文件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -482,15 +511,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -498,11 +523,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">缓存</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
             
             <div class="clearfix"></div>
