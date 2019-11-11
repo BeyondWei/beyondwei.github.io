@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://yoursite.com/images/technology/zookeeper%E7%89%B9%E7%82%B9.png">
 <meta property="og:image" content="http://yoursite.com/images/technology/zookeeper%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84.png">
 <meta property="og:image" content="http://yoursite.com/images/technology/zookeeper%E7%9A%84%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3.png">
-<meta property="og:updated_time" content="2019-11-11T06:29:56.960Z">
+<meta property="og:updated_time" content="2019-11-11T07:48:07.620Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="zookeeper">
 <meta name="twitter:description" content="zookeeper特点 zookeeper特点">
@@ -205,9 +205,10 @@
 <ul>
 <li>zookeeper 以树的结构将数据存储在内存中，zookeeper 定时将数据存储到磁盘上。</li>
 <li>zookeeper 为实现数据的高可用，每一个服务器节点都会存储一份数据信息，大量的信息将会极大的占用服务器的内存。</li>
+<li>zookeeper 不会出现脑裂情况</li>
 </ul>
 </li>
-<li><p>保证CAP （CP有相悖性）</p>
+<li><p>保证CP （CP有相悖性）</p>
 <ul>
 <li>C: 一致性（强一致性）</li>
 <li>A: 可用性</li>
@@ -222,7 +223,7 @@
 <li><p>2PC(两阶段提交) </p>
 <ul>
 <li><p>客户端连接leader节点做事物操作</p>
-<p>  leader开始发送预提交后，follower 将接收到的预提交信息写入事物日志后，返回ack给leader，leader接收到一半以上的ack就会发送提交命令，follower接受到提交命令后将事物日志中的信息写入DataTree</p>
+<p>  leader开始发送预提交后，follower 将接收到的预提交信息写入事物日志后，返回ack给leader，leader接收到一半以上的ack就会发送提交命令，同时返回客户端操作成功的信息，follower接受到提交命令后将事物日志中的信息写入DataTree</p>
 </li>
 <li><p>客户端连接follower节点做事物操作</p>
 <p>  follower将请求转发给leader，由leader来完成事物操作</p>
@@ -255,6 +256,14 @@
 <li>过半机制</li>
 <li>两阶段提交</li>
 <li>数据同步</li>
+</ul>
+</li>
+<li><p>follower节点越多，读的速度越快，写的请求越慢</p>
+</li>
+<li><p>可以增加Observer节点，增加读的速度不影响写的速度</p>
+<ul>
+<li>leader节点会将数据包直接发送给Observer节点，Observer节点接收到leader的数据包后直接将数据写入DataTree内存</li>
+<li>Observer节点写请求也是转发到leader节点，不参加领导者选举</li>
 </ul>
 </li>
 </ul>
@@ -529,14 +538,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">日常</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">脚本</a>
               </li>
              
@@ -545,11 +546,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+                <a href="javascript:void(0)" class="js-tag color3">日常</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">配置文件</a>
+                <a href="javascript:void(0)" class="js-tag color3">技术</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -558,6 +559,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">配置文件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -577,11 +586,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
