@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://yoursite.com/images/technology/zookeeper%E7%89%B9%E7%82%B9.png">
 <meta property="og:image" content="http://yoursite.com/images/technology/zookeeper%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84.png">
 <meta property="og:image" content="http://yoursite.com/images/technology/zookeeper%E7%9A%84%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3.png">
-<meta property="og:updated_time" content="2019-11-11T07:48:07.620Z">
+<meta property="og:updated_time" content="2019-11-11T08:50:45.488Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="zookeeper">
 <meta name="twitter:description" content="zookeeper特点 zookeeper特点">
@@ -176,7 +176,7 @@
   <div id="toc-article" class="toc-article">
       <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
     <strong class="toc-title">文章目录</strong>
-           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#zookeeper特点"><span class="toc-number">1.</span> <span class="toc-text">zookeeper特点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zookeeper-数据存储结构"><span class="toc-number">2.</span> <span class="toc-text">zookeeper 数据存储结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zookeeper-应用场景"><span class="toc-number">3.</span> <span class="toc-text">zookeeper 应用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zookeeper-的简单理解"><span class="toc-number">4.</span> <span class="toc-text">zookeeper 的简单理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zookeeper-投票选举过成"><span class="toc-number">5.</span> <span class="toc-text">zookeeper 投票选举过成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zookeeper-数据同步"><span class="toc-number">6.</span> <span class="toc-text">zookeeper 数据同步</span></a></li></ol>
+           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#zookeeper特点"><span class="toc-number">1.</span> <span class="toc-text">zookeeper特点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zookeeper-数据存储结构"><span class="toc-number">2.</span> <span class="toc-text">zookeeper 数据存储结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zookeeper-应用场景"><span class="toc-number">3.</span> <span class="toc-text">zookeeper 应用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zookeeper-的简单理解"><span class="toc-number">4.</span> <span class="toc-text">zookeeper 的简单理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zookeeper-投票选举过成"><span class="toc-number">5.</span> <span class="toc-text">zookeeper 投票选举过成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zookeeper-数据同步"><span class="toc-number">6.</span> <span class="toc-text">zookeeper 数据同步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zookeeper-启动的逻辑"><span class="toc-number">7.</span> <span class="toc-text">zookeeper 启动的逻辑</span></a></li></ol>
          </div>
    <script type="text/javascript">
   function showToc(){
@@ -266,6 +266,13 @@
 <li>Observer节点写请求也是转发到leader节点，不参加领导者选举</li>
 </ul>
 </li>
+</ul>
+<h2 id="zookeeper-启动的逻辑"><a href="#zookeeper-启动的逻辑" class="headerlink" title="zookeeper 启动的逻辑"></a>zookeeper 启动的逻辑</h2><ul>
+<li>初始化配置</li>
+<li>监听端口</li>
+<li>初始化DataTree</li>
+<li>领导者选举</li>
+<li>服务器其他初始化</li>
 </ul>
 
       
@@ -371,6 +378,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2019/11/18/technology/中间件/kafka/kafka/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          kafka
+        
+      </div>
+    </a>
+  
   
     <a href="/2019/10/29/technology/spring/Spring缓存抽象/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">Spring缓存抽象</div>
@@ -400,7 +416,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#zookeeper特点"><span class="toc-number">1.</span> <span class="toc-text">zookeeper特点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zookeeper-数据存储结构"><span class="toc-number">2.</span> <span class="toc-text">zookeeper 数据存储结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zookeeper-应用场景"><span class="toc-number">3.</span> <span class="toc-text">zookeeper 应用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zookeeper-的简单理解"><span class="toc-number">4.</span> <span class="toc-text">zookeeper 的简单理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zookeeper-投票选举过成"><span class="toc-number">5.</span> <span class="toc-text">zookeeper 投票选举过成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zookeeper-数据同步"><span class="toc-number">6.</span> <span class="toc-text">zookeeper 数据同步</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#zookeeper特点"><span class="toc-number">1.</span> <span class="toc-text">zookeeper特点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zookeeper-数据存储结构"><span class="toc-number">2.</span> <span class="toc-text">zookeeper 数据存储结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zookeeper-应用场景"><span class="toc-number">3.</span> <span class="toc-text">zookeeper 应用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zookeeper-的简单理解"><span class="toc-number">4.</span> <span class="toc-text">zookeeper 的简单理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zookeeper-投票选举过成"><span class="toc-number">5.</span> <span class="toc-text">zookeeper 投票选举过成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zookeeper-数据同步"><span class="toc-number">6.</span> <span class="toc-text">zookeeper 数据同步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zookeeper-启动的逻辑"><span class="toc-number">7.</span> <span class="toc-text">zookeeper 启动的逻辑</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -554,11 +570,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">缓存</a>
+                <a href="javascript:void(0)" class="js-tag color3">运维</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -570,11 +586,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">zookeeper</a>
+                <a href="javascript:void(0)" class="js-tag color3">缓存</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">zookeeper</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -586,6 +606,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
@@ -594,11 +618,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">redis配置</a>
+                <a href="javascript:void(0)" class="js-tag color1">kafka</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">redis配置</a>
               </li>
             
             <div class="clearfix"></div>
