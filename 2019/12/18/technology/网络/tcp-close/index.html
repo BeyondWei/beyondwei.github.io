@@ -8,15 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>tcp-close | beyondWei-bolg</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="网络,tcp">
+  <meta name="description" content="记录一下对tcp关闭前的4次连接">
+<meta name="keywords" content="网络,tcp">
 <meta property="og:type" content="article">
 <meta property="og:title" content="tcp-close">
 <meta property="og:url" content="http://yoursite.com/2019/12/18/technology/网络/tcp-close/index.html">
 <meta property="og:site_name" content="beyondWei-bolg">
+<meta property="og:description" content="记录一下对tcp关闭前的4次连接">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-18T08:27:04.380Z">
+<meta property="og:updated_time" content="2019-12-18T08:28:15.273Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="tcp-close">
+<meta name="twitter:description" content="记录一下对tcp关闭前的4次连接">
   
     <link rel="alternative" href="/atom.xml" title="beyondWei-bolg" type="application/atom+xml">
   
@@ -165,7 +168,35 @@
 <!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p><em>记录一下对tcp关闭前的4次连接</em></p>
+<a id="more"></a>
+
+<h4 id="正常tcp关闭"><a href="#正常tcp关闭" class="headerlink" title="正常tcp关闭"></a>正常tcp关闭</h4><ul>
+<li>客户端对服务端发起请求说：我要关闭，你准备一下。收到请扣一。</li>
+<li>服务端对客户端发起请求说：一。我知道到你要关闭了，我这边关闭需要操作一些东西。等下我处理完了和你说。</li>
+<li>服务端对客户端发起请求说：我这里处理好了，你可以关闭了。收到请扣一。</li>
+<li>客户端对服务端发起请求说：一。我知道了，我开始关闭了，你关闭吧。</li>
+</ul>
+<h4 id="异常关闭"><a href="#异常关闭" class="headerlink" title="异常关闭"></a>异常关闭</h4><ul>
+<li><p>文件句柄数超了</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Too many open files</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<ul>
+<li><p>原因</p>
+<blockquote>
+<p>在服务端和客户端说完要为关闭做处理时，发生了一些异常的情况，导致服务端迟迟没有向客服端发起请求（把客户端鸽了）。客户端一片痴心，苦苦等了两个小时说，看来我们果然还是不合适，然后自己不再理会服务端，关闭了。<br>  在客户端等待的过程中，并没有释放自己的资源。如果在这个时候出现很多这样的情况就会导致资源不够用。</p>
+</blockquote>
+</li>
+<li><p>解决方法</p>
+<blockquote>
+<p>给客户端的等待加一个时间，2个小时太长，换成几秒钟</p>
+</blockquote>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">HttpClients.custom()</span><br><span class="line">                .evictExpiredConnections()</span><br><span class="line">                .evictIdleConnections(30, TimeUnit.SECONDS)</span><br><span class="line">                .build()</span><br></pre></td></tr></table></figure></code></pre></li>
+</ul>
+
       
 
       
@@ -273,15 +304,6 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/12/18/technology/网络/tcp关闭四次握手/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          tcp关闭四次握手
-        
-      </div>
-    </a>
-  
   
     <a href="/2019/12/17/面试题/java 基础/java基础/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">java基础</div>
@@ -311,7 +333,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#正常tcp关闭"><span class="toc-number">1.</span> <span class="toc-text">正常tcp关闭</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#异常关闭"><span class="toc-number">2.</span> <span class="toc-text">异常关闭</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -465,19 +487,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">运维</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">配置文件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">运维</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -509,6 +531,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">后端</a>
               </li>
              
@@ -517,7 +543,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -525,19 +551,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color3">redis配置</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">redis配置</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
             
             <div class="clearfix"></div>
