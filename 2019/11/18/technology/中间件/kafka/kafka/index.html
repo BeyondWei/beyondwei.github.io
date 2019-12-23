@@ -17,7 +17,7 @@
 <meta property="og:description" content="kafka学习心得">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/images/technology/kafka%E6%9E%B6%E6%9E%84.png">
-<meta property="og:updated_time" content="2019-11-19T06:48:08.192Z">
+<meta property="og:updated_time" content="2019-12-23T06:38:09.817Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="kafka">
 <meta name="twitter:description" content="kafka学习心得">
@@ -199,10 +199,20 @@
 
 <h2 id="kafka-架构"><a href="#kafka-架构" class="headerlink" title="kafka 架构"></a>kafka 架构</h2><p><img src="/images/technology/kafka%E6%9E%B6%E6%9E%84.png" alt></p>
 <ul>
-<li>kafka 生产者（向kafka broker 发送消息的客户端）生产的同一个topic的消息可以存储在不同的区中，同一个区可以有备份，有leader和follower的区分</li>
-<li>kafka 消费（向kafka broker 获取消息的客户端）可以分为消费者组，但是一个消费者、消费者组只能消费一个topic。同一个消费者组的某一个消费模块只会同一个topic中不通的区块</li>
-<li>0.9 版本以后的kafka 将会把offset 信息存储在kafka 的系统topic 中</li>
-<li>kafka 消息默认存储在磁盘中，保存7天（168小时）</li>
+<li><p>kafka 生产者（向kafka broker 发送消息的客户端）生产的同一个topic的消息可以存储在不同的区中，同一个区可以有备份，有leader和follower的区分</p>
+</li>
+<li><p>kafka 消费（向kafka broker 获取消息的客户端）可以分为消费者组，但是一个消费者、消费者组只能消费一个topic。同一个消费者组的某一个消费模块只会同一个topic中不通的区块</p>
+</li>
+<li><p>0.9 版本以后的kafka 将会把offset 信息存储在kafka 的系统topic 中</p>
+</li>
+<li><p>kafka 消息默认存储在磁盘中，保存7天（168小时）</p>
+</li>
+<li><p>topic 为了给存储的消息分类</p>
+</li>
+<li><p>分区提高读取的并发度</p>
+</li>
+<li><p>备份为了数据的容灾</p>
+</li>
 </ul>
 <h2 id="kafka-配置文件"><a href="#kafka-配置文件" class="headerlink" title="kafka 配置文件"></a>kafka 配置文件</h2><ul>
 <li>broker.id kafka节点ID</li>
@@ -488,10 +498,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">日常</a>
               </li>
              
@@ -508,19 +514,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">运维</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">tcp</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -532,6 +534,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">配置文件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
@@ -540,11 +546,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">配置文件</a>
+                <a href="javascript:void(0)" class="js-tag color5">zookeeper</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">zookeeper</a>
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">tcp</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -556,11 +566,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color3">基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基础</a>
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -576,7 +586,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
             
             <div class="clearfix"></div>
