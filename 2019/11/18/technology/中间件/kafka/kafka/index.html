@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://yoursite.com/images/technology/kafka%E6%9E%B6%E6%9E%84.png">
 <meta property="og:image" content="http://yoursite.com/images/technology/log%E5%92%8Cindex.png">
 <meta property="og:image" content="http://yoursite.com/images/technology/HW-LEO.png">
-<meta property="og:updated_time" content="2019-12-23T10:32:53.200Z">
+<meta property="og:updated_time" content="2019-12-25T10:01:39.496Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="kafka">
 <meta name="twitter:description" content="kafka学习心得">
@@ -176,7 +176,7 @@
   <div id="toc-article" class="toc-article">
       <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
     <strong class="toc-title">文章目录</strong>
-           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#kafka-架构"><span class="toc-number">1.</span> <span class="toc-text">kafka 架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件存储"><span class="toc-number">2.</span> <span class="toc-text">文件存储</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#index-和-log文件"><span class="toc-number">2.1.</span> <span class="toc-text">.index 和 .log文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#kafka-配置文件"><span class="toc-number">3.</span> <span class="toc-text">kafka 配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#kafka-使用注意点"><span class="toc-number">4.</span> <span class="toc-text">kafka 使用注意点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生产者"><span class="toc-number">5.</span> <span class="toc-text">生产者</span></a></li></ol>
+           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#kafka-架构"><span class="toc-number">1.</span> <span class="toc-text">kafka 架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件存储"><span class="toc-number">2.</span> <span class="toc-text">文件存储</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#index-和-log文件"><span class="toc-number">2.1.</span> <span class="toc-text">.index 和 .log文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#kafka-配置文件"><span class="toc-number">3.</span> <span class="toc-text">kafka 配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#kafka-使用注意点"><span class="toc-number">4.</span> <span class="toc-text">kafka 使用注意点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生产者"><span class="toc-number">5.</span> <span class="toc-text">生产者</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#消费者"><span class="toc-number">6.</span> <span class="toc-text">消费者</span></a></li></ol>
          </div>
    <script type="text/javascript">
   function showToc(){
@@ -265,6 +265,20 @@
 <ul>
 <li>kafka集群时处理数据，在kafka中将数据去重</li>
 <li>幂等性只能解决，单次会话，单个broker数据重复的问题</li>
+</ul>
+</li>
+</ul>
+<h2 id="消费者"><a href="#消费者" class="headerlink" title="消费者"></a>消费者</h2><ul>
+<li><p>消费方式</p>
+<ul>
+<li>推</li>
+<li>拉</li>
+</ul>
+</li>
+<li><p>分区分配策略    </p>
+<ul>
+<li>RoundRobin</li>
+<li>Range </li>
 </ul>
 </li>
 </ul>
@@ -410,7 +424,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#kafka-架构"><span class="toc-number">1.</span> <span class="toc-text">kafka 架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件存储"><span class="toc-number">2.</span> <span class="toc-text">文件存储</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#index-和-log文件"><span class="toc-number">2.1.</span> <span class="toc-text">.index 和 .log文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#kafka-配置文件"><span class="toc-number">3.</span> <span class="toc-text">kafka 配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#kafka-使用注意点"><span class="toc-number">4.</span> <span class="toc-text">kafka 使用注意点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生产者"><span class="toc-number">5.</span> <span class="toc-text">生产者</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#kafka-架构"><span class="toc-number">1.</span> <span class="toc-text">kafka 架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件存储"><span class="toc-number">2.</span> <span class="toc-text">文件存储</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#index-和-log文件"><span class="toc-number">2.1.</span> <span class="toc-text">.index 和 .log文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#kafka-配置文件"><span class="toc-number">3.</span> <span class="toc-text">kafka 配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#kafka-使用注意点"><span class="toc-number">4.</span> <span class="toc-text">kafka 使用注意点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生产者"><span class="toc-number">5.</span> <span class="toc-text">生产者</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#消费者"><span class="toc-number">6.</span> <span class="toc-text">消费者</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -564,19 +578,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">配置文件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">运维</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -588,15 +598,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">tcp</a>
+                <a href="javascript:void(0)" class="js-tag color5">配置文件</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">zookeeper</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">java8</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -608,6 +618,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">tcp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">后端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">jvm</a>
               </li>
              
@@ -616,23 +642,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">后端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">kafka</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -645,6 +663,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">redis配置</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">lambda</a>
               </li>
             
             <div class="clearfix"></div>
