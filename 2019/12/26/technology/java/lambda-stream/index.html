@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="beyondWei-bolg">
 <meta property="og:description" content="关于lambda stream的操作">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-27T03:40:48.860Z">
+<meta property="og:updated_time" content="2019-12-27T07:43:15.835Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="lambda-stream">
 <meta name="twitter:description" content="关于lambda stream的操作">
@@ -261,6 +261,17 @@
 </ul>
 </li>
 </ul>
+<h2 id="Stream-并行流和串行流"><a href="#Stream-并行流和串行流" class="headerlink" title="Stream 并行流和串行流"></a>Stream 并行流和串行流</h2><ul>
+<li><p>Stream() 串行流</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">long reduce = LongStream.rangeClosed(0, 10000000L)</span><br><span class="line">                            .reduce(0, Long::sum);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>paralleStream() 并行流</p>
+<blockquote>
+<p>底层使用fork/join</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">long reduce = LongStream.rangeClosed(0, 10000000L)</span><br><span class="line">        .sequential()</span><br><span class="line">        .reduce(0, Long::sum);</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
 
       
 
@@ -365,6 +376,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2019/12/27/life/编码习惯推荐/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          编码习惯推荐
+        
+      </div>
+    </a>
+  
   
     <a href="/2019/12/26/technology/java/lambda/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">lambda</div>
@@ -394,7 +414,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Stream-使用的三个步骤"><span class="toc-number">1.</span> <span class="toc-text">Stream 使用的三个步骤</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Stream-使用的三个步骤"><span class="toc-number">1.</span> <span class="toc-text">Stream 使用的三个步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Stream-并行流和串行流"><span class="toc-number">2.</span> <span class="toc-text">Stream 并行流和串行流</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -532,14 +552,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">日常</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">脚本</a>
               </li>
              
@@ -548,7 +560,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+                <a href="javascript:void(0)" class="js-tag color5">编码习惯</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">日常</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">技术</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -560,11 +580,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">配置文件</a>
+                <a href="javascript:void(0)" class="js-tag color2">lambda</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">lambda</a>
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">配置文件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -577,6 +601,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">zookeeper</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -596,10 +624,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">zookeeper</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">jvm</a>
               </li>
              
@@ -616,11 +640,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">kafka</a>
+                <a href="javascript:void(0)" class="js-tag color3">基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基础</a>
+                <a href="javascript:void(0)" class="js-tag color1">kafka</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -632,11 +656,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color3">redis配置</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">redis配置</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
             
             <div class="clearfix"></div>
