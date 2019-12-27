@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>redis配置详细详解（2.数据持久化（快照）配置） | beyondWei-bolg</title>
+  <title>lambda-stream | beyondWei-bolg</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="觉可以忘睡，饭可以忘吃，博客不能忘更">
-<meta name="keywords" content="技术,后端,redis配置">
+  <meta name="description" content="关于lambda stream的操作">
+<meta name="keywords" content="lambda">
 <meta property="og:type" content="article">
-<meta property="og:title" content="redis配置详细详解（2.数据持久化（快照）配置）">
-<meta property="og:url" content="http://yoursite.com/2019/09/03/technology/数据库/redis/配置/redis配置详细详解（2-数据持久化（快照）配置）/index.html">
+<meta property="og:title" content="lambda-stream">
+<meta property="og:url" content="http://yoursite.com/2019/12/26/technology/java/lambda-stream/index.html">
 <meta property="og:site_name" content="beyondWei-bolg">
-<meta property="og:description" content="觉可以忘睡，饭可以忘吃，博客不能忘更">
+<meta property="og:description" content="关于lambda stream的操作">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-20T02:12:25.248Z">
+<meta property="og:updated_time" content="2019-12-27T03:40:48.860Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="redis配置详细详解（2.数据持久化（快照）配置）">
-<meta name="twitter:description" content="觉可以忘睡，饭可以忘吃，博客不能忘更">
+<meta name="twitter:title" content="lambda-stream">
+<meta name="twitter:description" content="关于lambda stream的操作">
   
     <link rel="alternative" href="/atom.xml" title="beyondWei-bolg" type="application/atom+xml">
   
@@ -145,77 +145,121 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-technology/数据库/redis/配置/redis配置详细详解（2-数据持久化（快照）配置）" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-technology/java/lambda-stream" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      redis配置详细详解（2.数据持久化（快照）配置）
+      lambda-stream
     </h1>
   
 
         
-        <a href="/2019/09/03/technology/数据库/redis/配置/redis配置详细详解（2-数据持久化（快照）配置）/" class="archive-article-date">
-  	<time datetime="2019-09-03T12:55:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
+        <a href="/2019/12/26/technology/java/lambda-stream/" class="archive-article-date">
+  	<time datetime="2019-12-26T06:51:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-26</time>
 </a>
         
       </header>
     
     <!-- 目录内容 -->
-
-    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
-          <span class="btn-bg"></span>
-          <span class="btn-text">文章导航</span>
-          </p>
-  <div id="toc-article" class="toc-article">
-      <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
-    <strong class="toc-title">文章目录</strong>
-           <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#觉可以忘睡，饭可以忘吃，博客不能忘更"><span class="toc-number">1.</span> <span class="toc-text">觉可以忘睡，饭可以忘吃，博客不能忘更</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#save"><span class="toc-number">2.</span> <span class="toc-text">save</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#stop-writes-on-bgsave-error"><span class="toc-number">3.</span> <span class="toc-text">stop-writes-on-bgsave-error</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#rdbcompression"><span class="toc-number">4.</span> <span class="toc-text">rdbcompression</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#rdbchecksum"><span class="toc-number">5.</span> <span class="toc-text">rdbchecksum</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#dbfilename"><span class="toc-number">6.</span> <span class="toc-text">dbfilename</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#dir"><span class="toc-number">7.</span> <span class="toc-text">dir</span></a></li></ol>
-         </div>
-   <script type="text/javascript">
-  function showToc(){
-    var toc_article = document.getElementById("toc-article");
-    var show_toc_btn = document.getElementById("show-toc-btn");
-    toc_article.setAttribute("style","display:block");
-    show_toc_btn.setAttribute("style","display:none");
-    };
-  function showBtn(){
-    var toc_article = document.getElementById("toc-article");
-    var show_toc_btn = document.getElementById("show-toc-btn");
-    toc_article.setAttribute("style","display:none");
-    show_toc_btn.setAttribute("style","display:block");
-    };
-   </script>
-         
+   
 <!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="觉可以忘睡，饭可以忘吃，博客不能忘更"><a href="#觉可以忘睡，饭可以忘吃，博客不能忘更" class="headerlink" title="觉可以忘睡，饭可以忘吃，博客不能忘更"></a>觉可以忘睡，饭可以忘吃，博客不能忘更</h4><a id="more"></a>
-<h4 id="save"><a href="#save" class="headerlink" title="save"></a>save</h4><ul>
-<li>模板：save 900 1</li>
-<li>作用：redis数据库持久化条件（900秒钟有一次操作就会持久化一次）</li>
+        <p><em>关于lambda stream的操作</em></p>
+<a id="more"></a>
+
+<h2 id="Stream-使用的三个步骤"><a href="#Stream-使用的三个步骤" class="headerlink" title="Stream 使用的三个步骤"></a>Stream 使用的三个步骤</h2><ul>
+<li><p>创建 Stream</p>
+<blockquote>
+<p>在一个集合、或者数组中获取流 </p>
+<ul>
+<li>可以通过 Collection 系列集合提供的 Stream() 或者 paralleStream() 获取操作的流</li>
+<li>通过 Array 中的静态方法 stream() 获取数组流</li>
+<li>通过 Stream 类中的静态方法 of()</li>
+<li>创建无限流 <ul>
+<li>迭代 <code>Stream.iterate(0,(x) -&gt; x + 2)</code> </li>
+<li>生成 <code>Stream.generate(UuidUtil::uniqueNo16).limit(100).forEach(System.out::println);</code></li>
 </ul>
-<h4 id="stop-writes-on-bgsave-error"><a href="#stop-writes-on-bgsave-error" class="headerlink" title="stop-writes-on-bgsave-error"></a>stop-writes-on-bgsave-error</h4><ul>
-<li>模板：stop-writes-on-bgsave-error yes</li>
-<li>作用：当redis持久化失败的时候不允许在写入</li>
+</li>
 </ul>
-<h4 id="rdbcompression"><a href="#rdbcompression" class="headerlink" title="rdbcompression"></a>rdbcompression</h4><ul>
-<li>模板：rdbcompression yes</li>
-<li>作用：在转储.rdb数据持久化时使用LZF压缩字符串对象</li>
+</blockquote>
+</li>
+<li><p>中间操作</p>
+<blockquote>
+<p>对流进行过滤、切片等数据操作</p>
+</blockquote>
+<ul>
+<li><p>筛选与切片</p>
+<ul>
+<li>filter —— 接收 lambda ，从流中排除某些元素</li>
+<li>limit —— 截断流，使其元素不超过指定数量</li>
+<li>skip(n) —— 跳过元素，返回一个扔掉前n 个元素的流。若元素不足n 则会返回一个空流，与limit(n)互补</li>
+<li>distinct —— 筛选，通过流所生成元素的hashCode() 和 equals() 去除重复元素</li>
 </ul>
-<h4 id="rdbchecksum"><a href="#rdbchecksum" class="headerlink" title="rdbchecksum"></a>rdbchecksum</h4><ul>
-<li>模板：rdbchecksum yes</li>
-<li>作用：是否开启在持久化时对字符串的校验</li>
+</li>
+<li><p>映射</p>
+<ul>
+<li>map —— 接收 lambda ，将元素转换成其他或提取信息。接收一个函数作为参数，该函数会被应用到每个元素上，并将其映射为一个新的元素。</li>
+<li>flatMap —— 接收一个函数作为参数，将流中的每一个值都换成一个流，然后把流连成一个流 </li>
 </ul>
-<h4 id="dbfilename"><a href="#dbfilename" class="headerlink" title="dbfilename"></a>dbfilename</h4><ul>
-<li>模板：dbfilename dump.rdb</li>
-<li>作用：持久化文件的名称</li>
+</li>
+<li><p>排序</p>
+<ul>
+<li>sorted —— 自然排序 Comparable</li>
+<li>sorted(Comparator) —— 自定义排序 Comparator</li>
 </ul>
-<h4 id="dir"><a href="#dir" class="headerlink" title="dir"></a>dir</h4><ul>
-<li>模板：dir /var/lib/redis</li>
-<li>作用：指定持久化文件的地址</li>
+</li>
+</ul>
+</li>
+<li><p>终止操作</p>
+<blockquote>
+<p>中间操作不会执行任何处理，而是在终止操作的时候一次性全部处理，称为“惰性求值”。执行中间的操作链，并产生结果</p>
+</blockquote>
+<ul>
+<li><p>查找与匹配</p>
+<ul>
+<li><p>allMatch 检查是否匹配所有元素</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">boolean allMatch = stream.allMatch((e) -&gt; e.length() == 2);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>anyMatch 检查是否至少匹配一个元素</p>
+</li>
+<li><p>noneMatch 检查是否没有匹配到元素</p>
+</li>
+<li><p>findFirst 返回第一个元素</p>
+</li>
+<li><p>findAny 返回当前流中的任意元素</p>
+</li>
+<li><p>count 返回当前流中元素的中数量</p>
+</li>
+<li><p>max 返回最大的元素</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Optional&lt;String&gt; max = stream.max(Comparator.comparingInt(String::length));</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>min 返回最小的元素</p>
+</li>
+</ul>
+</li>
+<li><p>归约 </p>
+<ul>
+<li>reduce(T identity, BinaryOperator) / reduce(BinaryOpeartor) —— 可以将流中元素反复结合起来，得到一个值  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">String reduce = stream.reduce(&quot;&quot;, (x, y) -&gt; x+y);</span><br><span class="line">或者</span><br><span class="line">String reduce = stream.reduce(&quot;&quot;, String::concat);</span><br><span class="line">结合map使用</span><br><span class="line">String reduce = stream</span><br><span class="line">          .map(s -&gt; s)</span><br><span class="line">          .reduce(&quot;&quot;, String::concat);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>收集 </p>
+<ul>
+<li><p>collect 将流装换为其他形式。接收一个Collector接口的实现，用于给Stream中元素做汇总的方法</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; collect = stream.collect(Collectors.toList());</span><br><span class="line">或者收集至自定义容器</span><br><span class="line">HashSet&lt;String&gt; collect = stream.collect(Collectors.toCollection(HashSet::new));</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>可以用来计算数量、平均值、总和、最大值、最小值、分组（多级分组）、分区、连接（join）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
       
@@ -251,15 +295,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技术</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">后端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">redis配置</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">lambda</a>
         		</li>
       		
 		</ul>
@@ -315,7 +351,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/03/technology/数据库/redis/配置/redis配置详细详解（2-数据持久化（快照）配置）/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/12/26/technology/java/lambda-stream/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -329,18 +365,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/09/04/technology/数据库/redis/配置/redis配置详细详解（3-redis分布式配置（主从配置））/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          redis配置详细详解（3.redis分布式配置（主从配置））
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/09/02/technology/数据库/redis/配置/redis配置详细详解（1-基本配置信息）/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">redis配置详细详解（1.基本配置信息）</div>
+    <a href="/2019/12/26/technology/java/lambda/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">lambda</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -367,7 +394,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#觉可以忘睡，饭可以忘吃，博客不能忘更"><span class="toc-number">1.</span> <span class="toc-text">觉可以忘睡，饭可以忘吃，博客不能忘更</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#save"><span class="toc-number">2.</span> <span class="toc-text">save</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#stop-writes-on-bgsave-error"><span class="toc-number">3.</span> <span class="toc-text">stop-writes-on-bgsave-error</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#rdbcompression"><span class="toc-number">4.</span> <span class="toc-text">rdbcompression</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#rdbchecksum"><span class="toc-number">5.</span> <span class="toc-text">rdbchecksum</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#dbfilename"><span class="toc-number">6.</span> <span class="toc-text">dbfilename</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#dir"><span class="toc-number">7.</span> <span class="toc-text">dir</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Stream-使用的三个步骤"><span class="toc-number">1.</span> <span class="toc-text">Stream 使用的三个步骤</span></a></li></ol>
                     </div>
                 </span>
             </div>
